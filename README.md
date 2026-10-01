@@ -106,32 +106,34 @@ Each customer receives a score from **1 to 5** (5 = best), which is then combine
 | ❌ Lost | — |
 | 🆕 New | — |
 | **Total** | **—** |
-
----
 ## 📁 Project Structure
-Customer-Segmentation-using-RFM-Analysis/
-│
-├── rfm_analysis.py                      # Complete RFM analysis code
-│
-├── customer_rfm_data.xlsx               # Calculated RFM metrics
-├── customer_segments_final.xlsx         # Final segmented customer results
-├── customer_database.db                 # SQLite database
-│
-├── Data Loading.png                     # Screenshot: Data loaded successfully
-├── RFM Calculation.png                  # Screenshot: RFM metrics table
-├── Segment Summary.png                  # Screenshot: Count per segment
-├── Segment + Country Summary.png        # Screenshot: Country & segment breakdown
-├── SQL Join result table.png            # Screenshot: INNER JOIN query output
-├── Tables in Database.png               # Screenshot: Database tables list
-├── Customer_database.png                # Screenshot: Database saved confirmation
-│
-├── README.md                            # Project documentation & explanation
-└── LICENSE                              # MIT License
+
+**Main Files:**
+- `rfm_analysis.py` — Complete RFM analysis code
+- `customer_rfm_data.xlsx` — Calculated RFM metrics
+- `customer_segments_final.xlsx` — Final segmented customer results
+- `customer_database.db` — SQLite database
+
+**Screenshots:**
+- `Data Loading.png` — Data loaded successfully
+- `RFM Calculation.png` — RFM metrics table
+- `Segment Summary.png` — Count per segment
+- `Segment + Country Summary.png` — Country & segment breakdown
+- `SQL Join result table.png` — INNER JOIN query output
+- `Tables in Database.png` — Database tables list
+- `Customer_database.png` — Database saved confirmation
+
+**Documentation:**
+- `README.md` — Project explanation & details
+- `LICENSE` — MIT License
+-
+---
+
 
 ## 🎥 Walkthrough Video
 
 Watch the full step-by-step explanation and code run-through on LinkedIn:
-👉 **[Paste your video link here]**
+👉 **https://lnkd.in/p/e6QZSTiC**
 
 ---
 
