@@ -108,6 +108,7 @@ Each customer receives a score from **1 to 5** (5 = best), which is then combine
 | **Total** | **—** |
 
 ---
+## 📁 Project Structure
 Customer-Segmentation-using-RFM-Analysis/
 │
 ├── rfm_analysis.py                      # Complete RFM analysis code
