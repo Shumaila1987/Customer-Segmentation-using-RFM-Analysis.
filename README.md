@@ -91,7 +91,8 @@ FROM customers c
 INNER JOIN rfm_data r 
     ON c."Customer ID" = r.CustomerID;
 ```
- Revenue & Customer Count by Segment
+### Revenue & Customer Count by Segment
+```sql
 SELECT 
     Segment,
     COUNT(*) AS Total_Customers,
@@ -99,8 +100,8 @@ SELECT
 FROM rfm_data
 GROUP BY Segment
 ORDER BY Total_Revenue DESC;
-
-📂 Project Structure
+```
+## 📂 Project Structure
 
 Customer_Segmentation_Project/
 ├── rfm_analysis2.py                      # Complete Python script
@@ -119,4 +120,3 @@ Customer_Segmentation_Project/
 │
 ├── LICENSE
 └── README.md
-
