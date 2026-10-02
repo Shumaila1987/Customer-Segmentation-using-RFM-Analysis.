@@ -65,28 +65,15 @@ This project applies **RFM Analysis** (Recency, Frequency, Monetary) to classify
 |---|---|
 | `customers` | Customer ID + Country information |
 | `rfm_data` | RFM metrics, scores, RFM code, Segment label |
-
 ### Entity-Relationship Diagram
-┌────────────────────────────┐          ┌────────────────────────────┐
-│        customers           │          │        rfm_data            │
-├────────────────────────────┤          ├────────────────────────────┤
-│ Customer ID      (PK)      │◄─────────│ CustomerID       (FK)      │
-│ Country                    │          │ Recency                    │
-│                            │          │ Frequency                  │
-│                            │          │ Monetary                   │
-│                            │          │ R_Score                   │
-│                            │          │ F_Score                   │
-│                            │          │ M_Score                   │
-│                            │          │ RFM_Code                  │
-│                            │          │ Segment                   │
-└────────────────────────────┘          └────────────────────────────┘
 
-- **Relationship:** One-to-One — each customer has one RFM record
-- **Visual:** `Customer_Segmentation_ER_Diagram-1.png`
+![ER Diagram](Customer_Segmentation_ER_Diagram-1.png)
+
+- **Relationship:** One-to-One — each customer has exactly one RFM record
+- **File:** `Customer_Segmentation_ER_Diagram-1.png`
 - **Database:** `customer_database.db`
-- **Tool:** Created and viewed in **DBeaver**
-
----
+- **Created in:** DBeaver
+-
 
 ## 💡 Key SQL Queries
 
