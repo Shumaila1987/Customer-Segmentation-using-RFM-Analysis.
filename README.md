@@ -90,7 +90,7 @@ SELECT
 FROM customers c
 INNER JOIN rfm_data r 
     ON c."Customer ID" = r.CustomerID;
-## Revenue & Customer Count by Segment
+ Revenue & Customer Count by Segment
 SELECT 
     Segment,
     COUNT(*) AS Total_Customers,
@@ -98,4 +98,24 @@ SELECT
 FROM rfm_data
 GROUP BY Segment
 ORDER BY Total_Revenue DESC;
+
+📂 Project Structure
+
+Customer_Segmentation_Project/
+├── rfm_analysis2.py                      # Complete Python script
+├── customer_database.db                  # SQLite database
+├── customer_rfm_data.xlsx                # Calculated RFM metrics
+├── customer_segments_final.xlsx          # Final segment assignments
+│
+├── Customer_Segmentation_ER_Diagram-1.png
+├── Connection of both tables in SQL.png
+├── Data Loading.png
+├── RFM Calculation.png
+├── SQL Join result table.png
+├── Segment + Country Summary.png
+├── Segment Summary.png
+├── Tables in Database.png
+│
+├── LICENSE
+└── README.md
 
