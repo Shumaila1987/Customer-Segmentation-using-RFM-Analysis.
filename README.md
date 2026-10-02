@@ -103,21 +103,31 @@ ORDER BY Total_Revenue DESC;
 ```
 ## 📂 Project Structure
 
-Customer_Segmentation_Project/
-├── rfm_analysis2.py                      # Complete Python script
-├── customer_database.db                  # SQLite database
-├── customer_rfm_data.xlsx                # Calculated RFM metrics
-├── customer_segments_final.xlsx          # Final segment assignments
-│
-├── Customer_Segmentation_ER_Diagram-1.png
-├── Connection of both tables in SQL.png
-├── Data Loading.png
-├── RFM Calculation.png
-├── SQL Join result table.png
-├── Segment + Country Summary.png
-├── Segment Summary.png
-├── Tables in Database.png
-│
-├── LICENSE
-└── README.md
+**Main Files:**
+- `rfm_analysis2.py` — Complete Python script
+- `customer_database.db` — SQLite database
+- `customer_rfm_data.xlsx` — Calculated RFM metrics
+- `customer_segments_final.xlsx` — Final segment assignments
+
+**Visuals & Screenshots:**
+- `Customer_Segmentation_ER_Diagram-1.png` — ER Diagram
+- `Connection of both tables in SQL.png` — Table join
+- `Data Loading.png` — Step 1 preview
+- `RFM Calculation.png` — Step 2 preview
+- `SQL Join result table.png` — Query output
+- `Segment + Country Summary.png` — Analysis
+- `Segment Summary.png` — Segment breakdown
+- `Tables in Database.png` — Schema view
+
+**Other:**
+- `LICENSE` — MIT License
+- `README.md` — This file
+## 📬 Connect
+ - **LinkedIn:** www.linkedin.com/in/shumaila-liaqat
+
+
+ - **GitHub:** You're here! 👆
+ ---
+ *Built step-by-step with care by Shumaila Liaqat*
+
 
