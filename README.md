@@ -80,6 +80,7 @@ This project applies **RFM Analysis** (Recency, Frequency, Monetary) to classify
 │                            │          │ RFM_Code                  │
 │                            │          │ Segment                   │
 └────────────────────────────┘          └────────────────────────────┘
+
 - **Relationship:** One-to-One — each customer has one RFM record
 - **Visual:** `Customer_Segmentation_ER_Diagram-1.png`
 - **Database:** `customer_database.db`
