@@ -90,4 +90,12 @@ SELECT
 FROM customers c
 INNER JOIN rfm_data r 
     ON c."Customer ID" = r.CustomerID;
+## Revenue & Customer Count by Segment
+SELECT 
+    Segment,
+    COUNT(*) AS Total_Customers,
+    ROUND(SUM(Monetary), 2) AS Total_Revenue
+FROM rfm_data
+GROUP BY Segment
+ORDER BY Total_Revenue DESC;
 
