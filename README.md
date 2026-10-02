@@ -125,6 +125,7 @@ Customer_Segmentation_Project/
 │
 ├── LICENSE
 └── README.md
+
 Tool	Use
 Python 3	Data processing & RFM calculation
 Pandas	Data cleaning & aggregation
