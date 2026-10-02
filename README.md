@@ -74,6 +74,7 @@ This project applies **RFM Analysis** (Recency, Frequency, Monetary) to classify
 - **Database:** `customer_database.db`
 - **Created in:** DBeaver
 -
+---
 
 ## 💡 Key SQL Queries
 
@@ -89,64 +90,4 @@ SELECT
 FROM customers c
 INNER JOIN rfm_data r 
     ON c."Customer ID" = r.CustomerID;
-SELECT 
-    Segment,
-    COUNT(*) AS Total_Customers,
-    ROUND(SUM(Monetary), 2) AS Total_Revenue
-FROM rfm_data
-GROUP BY Segment
-ORDER BY Total_Revenue DESC;
-Customer_Segmentation_Project/
-├── rfm_analysis2.py                      # Complete Python script
-├── customer_database.db                  # SQLite database
-├── customer_rfm_data.xlsx                # Calculated RFM metrics
-├── customer_segments_final.xlsx          # Final segment assignments
-│
-├── Customer_Segmentation_ER_Diagram-1.png
-├── Connection of both tables in SQL.png
-├── Data Loading.png
-├── RFM Calculation.png
-├── SQL Join result table.png
-├── Segment + Country Summary.png
-├── Segment Summary.png
-├── Tables in Database.png
-│
-├── LICENSE
-└── README.md
 
-Tool	Use
-Python 3	Data processing & RFM calculation
-Pandas	Data cleaning & aggregation
-SQLite	Relational database storage
-DBeaver	Database management & ER Diagram
-VS Code	Code editor
-Excel (.xlsx)	Data import & export
-🚀 How to Run
- 
-1. Place all files in one folder
-​
-2. Run:  python rfm_analysis2.py 
-​
-3. Open  customer_database.db  in DBeaver or DB Browser
-​
-4. Run SQL queries to explore results
- 
- 
- 
-✅ Key Insights
- 
-- 🏆 Champions and 💎 Loyal Customers drive majority revenue
-​
-- ⚠️ Some high-value segments show declining recency → retention priority
-​
-- 🌍 International customer base → country-level opportunities
-​
-- 📊 Database design is extendable — add new tables anytime
- 
- 
- 
-📬 Connect
- 
-- LinkedIn: www.linkedin.com/in/shumaila-liaqat
- 
-Built step-by-step by Shumaila Liaqat
