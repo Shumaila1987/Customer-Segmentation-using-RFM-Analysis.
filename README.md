@@ -109,7 +109,7 @@ Each customer receives a score from **1 to 5** (5 = best), which is then combine
 ## 📁 Project Structure
 
 **Main Files:**
-- `rfm_analysis.py` — Complete RFM analysis code
+- `rfm_analysis2.py` — Complete RFM analysis code
 - `customer_rfm_data.xlsx` — Calculated RFM metrics
 - `customer_segments_final.xlsx` — Final segmented customer results
 - `customer_database.db` — SQLite database
@@ -122,6 +122,8 @@ Each customer receives a score from **1 to 5** (5 = best), which is then combine
 - `SQL Join result table.png` — INNER JOIN query output
 - `Tables in Database.png` — Database tables list
 - `Customer_database.png` — Database saved confirmation
+- 'Customer_Segmentation_ER_Diagram-1.png' _ ER Diagram showing relationship
+- 'Connection of both tables in SQL.png' _ Connection of both tables in SQL
 
 **Documentation:**
 - `README.md` — Project explanation & details
