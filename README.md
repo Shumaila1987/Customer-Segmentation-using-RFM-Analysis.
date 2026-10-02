@@ -1,150 +1,163 @@
 # 📊 Customer Segmentation using RFM Analysis
+### End-to-End Project: Python + SQL + SQLite + ER Diagram
 
-> **Transforming raw transaction data into actionable business insights**  
-> Built with Python • Pandas • SQLite • Excel
-
----
-
-## 📌 Project Overview
-
-Understanding customer behaviour is the foundation of smart business decisions. In this project, I applied **RFM Analysis** — a proven method to categorise customers based on their purchasing habits — to identify who the most valuable customers are, who needs attention, and who may be at risk of leaving.
-
-This end-to-end solution covers **data loading → calculation → scoring → segmentation → database storage → advanced querying**.
+> From raw data → RFM analysis → relational database → documented schema
+> Built step-by-step: Python processing → SQLite design → SQL queries → ER Diagram
 
 ---
 
-## 🧠 What is RFM Analysis?
+## 📋 Project Overview
 
-| Metric | Full Name | Meaning |
-|---|---|---|
-| **R** — Recency | Days since last purchase | More recent = higher value |
-| **F** — Frequency | Total number of purchases | More purchases = higher value |
-| **M** — Monetary | Total amount spent | Higher spend = higher value |
+This project applies **RFM Analysis** (Recency, Frequency, Monetary) to classify customers based on their purchasing behaviour — then stores the results in a **fully designed relational database** ready for querying and sharing.
 
-Each customer receives a score from **1 to 5** (5 = best), which is then combined to assign them to a meaningful segment.
+**Built in two phases:**
+- ✅ **Phase 1** — Python: Data cleaning, RFM calculation, segmentation
+- ✅ **Phase 2** — SQL: Database design, table relationships, ER Diagram, analysis queries
 
 ---
 
-## 🏷️ Customer Segments
+## 📁 Dataset
 
+| Detail | Information |
+|---|---|
+| **Source** | Online Retail Dataset |
+| **File** | Included in project files |
+| **Time Period** | 01/12/2010 — 09/12/2011 |
+| **Transactions** | 541,909+ |
+
+---
+
+## 🧠 Phase 1 — Python & RFM Analysis
+
+### What is RFM?
+| Metric | Meaning |
+|---|---|
+| **Recency** | Days since the customer's last purchase |
+| **Frequency** | Total number of purchases |
+| **Monetary** | Total amount spent |
+
+### Steps Completed
+1. Loaded & cleaned transaction data
+2. Calculated spending per transaction
+3. Aggregated per customer → RFM values
+4. Assigned scores **1–5** (5 = highest value)
+5. Combined scores → **7 distinct segments**
+
+### Customer Segments
 | Segment | Description |
 |---|---|
-| 🏆 **Champions** | Highest scores across all metrics — most valuable, active, and spending well |
-| 💎 **Loyal Customers** | Regular buyers who have purchased recently |
-| 💰 **High Spenders** | Purchase frequently and contribute significant revenue |
-| ✅ **Active** | Engaged customers with steady purchasing behaviour |
-| ⚠️ **At Risk** | Previously active customers who haven't purchased recently |
-| ❌ **Lost** | Customers who haven't purchased in a long time — opportunity to re-engage |
-| 🆕 **New** | Recently onboarded or less-engaged customers to nurture |
+| 🏆 **Champions** | Highest Recency + Frequency + Monetary — most valuable |
+| 💎 **Loyal Customers** | Buy frequently and recently |
+| 💰 **High Spenders** | Largest total spending |
+| ✅ **Active** | Recent and consistent engagement |
+| ⚠️ **At Risk** | Previously active but not recent |
+| ❌ **Lost** | No recent activity — needs re-engagement |
+| 🆕 **New** | New or low-activity customers |
 
 ---
 
-## 🛠️ Tools & Technologies
+## 🗄️ Phase 2 — SQL Database & ER Diagram ✨
 
-| Tool | Purpose |
+### Database Design
+**Two linked tables** in SQLite:
+
+| Table | Purpose |
 |---|---|
-| **Python 3** | Core programming language |
-| **Pandas** | Data manipulation, grouping, and transformation |
-| **SQLite** | Relational database storage, table joins, and aggregation |
-| **Excel (.xlsx)** | Data input and deliverable output files |
-| **Methodology** | RFM modelling, quantile ranking, custom business logic |
+| `customers` | Customer ID + Country information |
+| `rfm_data` | RFM metrics, scores, RFM code, Segment label |
+
+### Entity-Relationship Diagram
+┌────────────────────────────┐          ┌────────────────────────────┐
+│        customers           │          │        rfm_data            │
+├────────────────────────────┤          ├────────────────────────────┤
+│ Customer ID      (PK)      │◄─────────│ CustomerID       (FK)      │
+│ Country                    │          │ Recency                    │
+│                            │          │ Frequency                  │
+│                            │          │ Monetary                   │
+│                            │          │ R_Score                   │
+│                            │          │ F_Score                   │
+│                            │          │ M_Score                   │
+│                            │          │ RFM_Code                  │
+│                            │          │ Segment                   │
+└────────────────────────────┘          └────────────────────────────┘
+- **Relationship:** One-to-One — each customer has one RFM record
+- **Visual:** `Customer_Segmentation_ER_Diagram-1.png`
+- **Database:** `customer_database.db`
+- **Tool:** Created and viewed in **DBeaver**
 
 ---
 
----
+## 💡 Key SQL Queries
 
-## 🔄 Workflow
-
-### Step 1 — Load & Prepare Data
-- Read Excel file and inspect columns
-- Convert `InvoiceDate` to datetime format
-- Identify the most recent transaction date
-
-### Step 2 — Calculate RFM Metrics
-- Group records by `Customer ID`
-- **Recency**: Days since last purchase
-- **Frequency**: Count of unique invoices
-- **Monetary**: Sum of total spend
-
-### Step 3 — Assign Scores
-- Rank customers using `pd.qcut` into 5 equal groups
-- Recency: fewer days = higher score
-- Frequency & Monetary: higher values = higher score
-
-### Step 4 — Segment Customers
-- Apply custom business rules via a Python function
-- Assign each customer to one of 7 segments
-- Generate summary counts per segment
-
-### Step 5 — Export Results
-- Save segmented data to Excel for business use
-
-### Step 6 — Build SQL Database
-- Create **two linked tables**:
-  - `rfm_data` → RFM metrics + segment labels
-  - `customers` → Customer ID + Country information
-- Establish relationship using `CustomerID`
-
-### Step 7 — Run Advanced Queries
-- **INNER JOIN** → Combine customer details with RFM data
-- **GROUP BY** → Count customers by country and segment
-- **Filter & Sort** → Identify top-spending active customers
-
----
-
-## 📊 Key Results
-
-*(Update with your actual numbers after running the code!)*
-
-| Segment | Number of Customers |
-|---|---:|
-| 🏆 Champions | — |
-| 💎 Loyal Customers | — |
-| 💰 High Spenders | — |
-| ✅ Active | — |
-| ⚠️ At Risk | — |
-| ❌ Lost | — |
-| 🆕 New | — |
-| **Total** | **—** |
-## 📁 Project Structure
-
-**Main Files:**
-- `rfm_analysis2.py` — Complete RFM analysis code
-- `customer_rfm_data.xlsx` — Calculated RFM metrics
-- `customer_segments_final.xlsx` — Final segmented customer results
-- `customer_database.db` — SQLite database
-
-**Screenshots:**
-- `Data Loading.png` — Data loaded successfully
-- `RFM Calculation.png` — RFM metrics table
-- `Segment Summary.png` — Count per segment
-- `Segment + Country Summary.png` — Country & segment breakdown
-- `SQL Join result table.png` — INNER JOIN query output
-- `Tables in Database.png` — Database tables list
-- `Customer_database.png` — Database saved confirmation
-- 'Customer_Segmentation_ER_Diagram-1.png' _ ER Diagram showing relationship
-- 'Connection of both tables in SQL.png' _ Connection of both tables in SQL
-
-**Documentation:**
-- `README.md` — Project explanation & details
-- `LICENSE` — MIT License
--
----
-
-
-## 🎥 Walkthrough Video
-
-Watch the full step-by-step explanation and code run-through on LinkedIn:
-👉 **https://lnkd.in/p/e6QZSTiC**
-
----
-
-## 📬 Connect With Me
-
-- **LinkedIn**: www.linkedin.com/in/shumaila-liaqat
-- **Email**: shumailazubair327@gmail.com
-
----
-
-*Built by **Shumaila Liaqat** — Data Analyst • Python • SQL • Power BI*  
-*Turning data into insights, one project at a time.* 🚀
+### Join Customer Details with RFM Results
+```sql
+SELECT 
+    c."Customer ID",
+    c.Country,
+    r.Recency,
+    r.Frequency,
+    r.Monetary,
+    r.Segment
+FROM customers c
+INNER JOIN rfm_data r 
+    ON c."Customer ID" = r.CustomerID;
+SELECT 
+    Segment,
+    COUNT(*) AS Total_Customers,
+    ROUND(SUM(Monetary), 2) AS Total_Revenue
+FROM rfm_data
+GROUP BY Segment
+ORDER BY Total_Revenue DESC;
+Customer_Segmentation_Project/
+├── rfm_analysis2.py                      # Complete Python script
+├── customer_database.db                  # SQLite database
+├── customer_rfm_data.xlsx                # Calculated RFM metrics
+├── customer_segments_final.xlsx          # Final segment assignments
+│
+├── Customer_Segmentation_ER_Diagram-1.png
+├── Connection of both tables in SQL.png
+├── Data Loading.png
+├── RFM Calculation.png
+├── SQL Join result table.png
+├── Segment + Country Summary.png
+├── Segment Summary.png
+├── Tables in Database.png
+│
+├── LICENSE
+└── README.md
+Tool	Use
+Python 3	Data processing & RFM calculation
+Pandas	Data cleaning & aggregation
+SQLite	Relational database storage
+DBeaver	Database management & ER Diagram
+VS Code	Code editor
+Excel (.xlsx)	Data import & export
+🚀 How to Run
+ 
+1. Place all files in one folder
+​
+2. Run:  python rfm_analysis2.py 
+​
+3. Open  customer_database.db  in DBeaver or DB Browser
+​
+4. Run SQL queries to explore results
+ 
+ 
+ 
+✅ Key Insights
+ 
+- 🏆 Champions and 💎 Loyal Customers drive majority revenue
+​
+- ⚠️ Some high-value segments show declining recency → retention priority
+​
+- 🌍 International customer base → country-level opportunities
+​
+- 📊 Database design is extendable — add new tables anytime
+ 
+ 
+ 
+📬 Connect
+ 
+- LinkedIn: www.linkedin.com/in/shumaila-liaqat
+ 
+Built step-by-step by Shumaila Liaqat
