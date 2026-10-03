@@ -151,12 +151,12 @@ ORDER BY Country, Total_Customers DESC
 LIMIT 10
 """
 print("\n" + "="*70)
-print("📊 Country + Segment Summary")
+print(" Country + Segment Summary")
 print("="*70)
 summary_result = pd.read_sql(summary_query, conn)
 print(summary_result)
 # ==============================================
-# 📊 YOUR SQL QUERIES
+# SQL QUERIES
 # ==============================================
 
 # Query 1: View all customers with their country
